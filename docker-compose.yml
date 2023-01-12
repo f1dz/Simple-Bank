@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: pgbank
+    volumes:
+      - ./.docker/var/data/postgresql/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data
